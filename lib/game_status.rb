@@ -16,6 +16,7 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
+<<<<<<< HEAD
   winner = nil
   WIN_COMBINATIONS.each do |combo|
     if combo.all? {|idx| board[idx] == "X"}
@@ -90,4 +91,44 @@ def winner(board)
     end
   end
   winner
+=======
+ WIN_COMBINATIONS.each do |win_combination|
+   win_index_1 = win_combination[0]
+   win_index_2 = win_combination[1]
+   win_index_3 = win_combination[2]
+   position_1 = board[win_index_1] # value of board at win_index_1
+   position_2 = board[win_index_2] # value of board at win_index_2
+   position_3 = board[win_index_3] # value of board at win_index_3
+   position_1 == position_2 && position_2 == position_3 && position_taken?(board, win_index_1)
+ end
+end
+
+def full?(board)
+
+  board.all? {|i| i == "X" || i == "O"}
+end
+
+def draw?(board)
+  if !winner(board) && full?(board)
+    return true
+  elsif
+    !won?(board) && !full?(board)
+    return false
+  elsif won?(board)
+    return false
+  end
+end
+
+def over?(board)
+  if draw?(board) || won?(board) || full?(board)
+    return true
+  end
+end
+
+
+def winner(board)
+  if won?(board)
+    return board[won?(board)[0]]
+  end
+>>>>>>> 060f0879459cddae1a904e7da97672e4940740fd
 end
