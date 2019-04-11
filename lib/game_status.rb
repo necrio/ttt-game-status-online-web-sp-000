@@ -16,7 +16,6 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-<<<<<<< HEAD
   winner = nil
   WIN_COMBINATIONS.each do |combo|
     if combo.all? {|idx| board[idx] == "X"}
